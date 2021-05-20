@@ -13,7 +13,7 @@ module Mobilepay
                 payload_base64 = Base64.strict_encode64(payload_sha1)
 
                 jwk = JOSE::JWK.from_pem_file(privatekey)
-                JOSE::JWS.sign(jwk, payload_base64, { 'alg' => 'RS256', 'typ' => 'JWT' }).compact
+                return JOSE::JWS.sign(jwk, payload_base64, { 'alg' => 'RS256', 'typ' => 'JWT' }).compact
             end
 
         end
